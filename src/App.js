@@ -1,26 +1,25 @@
-import { Fragment } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Header } from './components/Header';
+import { Balance } from './components/Balance';
+import { IncomeExpenses } from './components/IncomeExpenses';
+import { TransactionList } from './components/TransactionList';
+import { AddTransaction } from './components/AddTransaction';
 
-import Dashboard from './components/Dashboard'
-import './App.css'
+import { GlobalProvider } from './context/GlobalState';
 
-const App = props => {
+import './App.css';
 
-  let routes
-
+function App() {
   return (
-    <Router>
-      <Fragment>
-        <Dashboard />
-        {routes}
-      </Fragment>
-    </Router>
-  )
+    <GlobalProvider>
+      <Header />
+      <div className="container">
+        <Balance />
+        <IncomeExpenses />
+        <TransactionList />
+        <AddTransaction />
+      </div>
+    </GlobalProvider>
+  );
 }
 
-const mapStateToProps = state => ({ })
-
-const mapDispatchToProps = dispatch => ({ })
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;

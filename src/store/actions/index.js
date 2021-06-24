@@ -1,1 +1,0 @@
-export { setAlert } from './alert'
